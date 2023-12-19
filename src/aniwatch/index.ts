@@ -11,8 +11,6 @@ import {
   PlaylistEpisodeServerResponse,
   PlaylistEpisodeSource,
   PlaylistEpisodeSourcesRequest,
-  PlaylistEpisodeServerSubtitle,
-  PlaylistGroupVariant,
   PlaylistItem,
   PlaylistItemsOptions,
   PlaylistItemsResponse,
@@ -163,7 +161,7 @@ export default class Aniwatch extends SourceModule implements VideoContent {
       let list: PlaylistItem[] = []
       $(".ssl-item.ep-item").map((_, el) => {
         list.push({
-          id: "https://aniwatch.to/ajax/v2/episode/servers?episodeId=" + $(el).attr("href")?.split("?ep=")[1] ?? "",
+          id: "https://aniwatch.to/ajax/v2/episode/servers?episodeId=" + $(el).attr("href")?.split("?ep=")[1],
           title: $(el).attr("title") ?? "",
           number: parseFloat($(el).attr("data-number") ?? ""),
           tags: []
@@ -341,6 +339,8 @@ export default class Aniwatch extends SourceModule implements VideoContent {
                                     default: element["label"].toLowerCase() == "english",
                                     autoselect: element["label"].toLowerCase() == "english"
                                 };
+                            } else {
+                              return null
                             }
                         })
                         .filter((elements: any) => {
@@ -397,6 +397,8 @@ export default class Aniwatch extends SourceModule implements VideoContent {
                                   default: element["label"].toLowerCase() == "english",
                                   autoselect: element["label"].toLowerCase() == "english"
                               };
+                          } else {
+                            return null
                           }
                       })
                       .filter((elements: any) => {
