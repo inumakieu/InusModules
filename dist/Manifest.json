@@ -1,0 +1,18 @@
+{
+  "repository": {
+    "name": "Inu's Modules",
+    "author": "Inumaki"
+  },
+  "modules": [
+    {
+      "name": "Aniwatch",
+      "description": "A module to get data from Aniwatch (formerly Zoro)",
+      "icon": "https://aniwatch.to/images/favicon.png",
+      "version": "0.0.31",
+      "id": "aniwatch",
+      "file": "/modules/aniwatch.js",
+      "meta": [],
+      "mochiJSVersion": "0.0.2"
+    }
+  ]
+}
